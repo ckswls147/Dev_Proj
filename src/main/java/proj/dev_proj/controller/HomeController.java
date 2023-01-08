@@ -1,56 +1,40 @@
 package proj.dev_proj.controller;
 
-
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import proj.dev_proj.member.Member;
-import proj.dev_proj.member.MemberRepository;
 
 @Controller
-@RequiredArgsConstructor
 public class HomeController {
 
-    MemberRepository memberRepository = new MemberRepository();
-
-    @GetMapping
-    public String home() {
-        return "index";
+    @GetMapping("/test")
+    public String test() {
+        return "basic/test";
     }
 
-    @GetMapping("/list")
-    public String memberList() {
-        return "basic/list";
+    @GetMapping("/")
+    public String index() {
+        return "basic/index";
     }
 
-    @GetMapping("/info/{memberId}")
-    public String member(Long memberId, Model model) {
-        Member findMember = memberRepository.findById(memberId);
-        model.addAttribute("member", findMember);
-        return "basic/info";
+    @GetMapping("/about")
+    public String about() {
+        return "basic/about";
     }
 
-    @GetMapping("/login")
-    public String loginForm() {
-        return "basic/login";
+    @GetMapping("/contact")
+    public String contact() {
+        return "basic/contact";
     }
 
-//    @PostMapping("login")
-//    public String login(@ModelAttribute Member member) {
-//
-//    }
-
-    @GetMapping("/signup")
-    public String signupForm() {
-        return "basic/signup";
+    @GetMapping("/products")
+    public String products(Member member) {
+        return "basic/products";
     }
 
-    @PostMapping("/signup")
-    public String signup(@ModelAttribute Member member) {
-        memberRepository.save(member);
-        return "redirect:/login";
+    @GetMapping("/single-product")
+    public String single_product() {
+        return "basic/single-product";
     }
+
 }

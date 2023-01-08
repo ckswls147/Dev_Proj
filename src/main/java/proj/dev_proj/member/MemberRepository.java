@@ -3,39 +3,19 @@ package proj.dev_proj.member;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
-public class MemberRepository {
+public interface MemberRepository {
 
-    private HashMap<Long, Member> store = new HashMap<Long, Member>();
+    Member save(Member member);
 
-    private long sequence = 0L;
+    Member findById(Long id);
 
-    public Member save(Member member) {
-        member.setId(++sequence);
-        store.put(member.getId(), member);
-        return member;
-    }
+    Optional<Member> findByName(String username);
 
-    public Member findById(Long id) {
-        return store.get(id);
-    }
+    Optional<Member> findByNickName(String nickname);
 
-    public List<Member> findAll(Member member) {
-        return new ArrayList<>(store.values());
-    }
+    List<Member> findAll();
 
-    public void update(Long memberId, Member updateParam) {
-        Member findMember = findById(memberId);
-        findMember.setPassword(updateParam.getPassword());
-        findMember.setNickname(updateParam.getNickname());
-    }
-
-    public boolean validation(String pwd1, String pwd2) {
-        if (pwd1.equals(pwd2)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
+    void update(Long memberId, Member updateParam);
 }

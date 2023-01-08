@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${'aaa/bbb'}"></h1>
+<li class="submenu">
+  <a href="javascript:;">Pages</a>
+  <ul>
+    <li><a th:href="@{/about}">About Us</a></li>
+    <li><a th:href="@{/products}"
+           href="products.html">Products</a></li>
+    <li><a th:href="@{/single-product}"
+           href="single-product.html">Single Product</a></li>
+    <li><a th:href="@{/contact}"
+           href="contact.html">Contact Us</a></li>
+  </ul>
+</li>
+</body>
+</html>

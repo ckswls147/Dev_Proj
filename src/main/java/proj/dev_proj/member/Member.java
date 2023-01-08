@@ -9,10 +9,8 @@ import java.util.SplittableRandom;
 
 @Getter @Setter
 public class Member {
-
-    public Member() {
+public Member() {
     }
-
     private long id;
     private String username;
     private String password;
