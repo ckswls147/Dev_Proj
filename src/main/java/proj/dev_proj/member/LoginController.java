@@ -1,17 +1,10 @@
-package proj.dev_proj.controller;
+package proj.dev_proj.member;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import proj.dev_proj.MemberData;
-import proj.dev_proj.member.Member;
-import proj.dev_proj.member.MemberService;
-import proj.dev_proj.member.MemberServiceImp;
-
-import java.lang.reflect.Parameter;
 
 @Controller
 public class LoginController {
@@ -19,12 +12,12 @@ public class LoginController {
 
 
     @GetMapping("/signup")
-    public String Signup_form() {
+    public String signup_form() {
         return "basic/member/signup";
     }
 
     @PostMapping("/signup")
-    public String Signup(@ModelAttribute MemberData memberdata
+    public String signup(@ModelAttribute MemberData memberdata
     ) {
 
         Member member = new Member();
@@ -38,4 +31,14 @@ public class LoginController {
         return "redirect:/";
     }
 
+    @GetMapping("/login")
+    public String login_form() {
+        return "basic/member/login";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute MemberData memberData) {
+        return "redirect:/";
+    }
 }
+

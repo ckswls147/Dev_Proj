@@ -15,7 +15,6 @@ public class MemberServiceImp implements MemberService{
     }
 
     private void validatePasswordCheck(String password, String password_check) {
-        System.out.println("pwd_Check ok");
         if (!password.equals(password_check)) {
             throw new IllegalStateException("비밀번호가 다릅니다. 1 = " + password + " 2 = " + password_check);
         }
