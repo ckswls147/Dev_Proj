@@ -1,44 +1,50 @@
 package proj.dev_proj.member;
 
-import java.util.ArrayList;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
+@Repository
 public class MemberRepositoryImpl implements MemberRepository {
+
+
+    @PersistenceContext
+    private EntityManager em;
 
     private HashMap<Long, Member> store = new HashMap<Long, Member>();
 
     private long sequence = 0L;
 
     @Override
-    public Member save(Member member) {
-        member.setId(++sequence);
-        store.put(member.getId(), member);
-        return member;
+    public void save(Member member) {
+        em.persist(member);
     }
-
     @Override
     public Member findById(Long id) {
-        return store.get(id);
-    }
-
-    @Override
-    public Optional<Member> findByName(String username) {
-        return store.values().stream()
-                .filter(member -> member.getUsername().equals(username))
-                .findAny();
-    }
-    @Override
-    public Optional<Member> findByNickName(String nickname) {
-        return store.values().stream()
-                .filter(member -> member.getNickname().equals(nickname))
-                .findAny();
+        return em.find(Member.class, id);
     }
 
     @Override
     public List<Member> findAll() {
-        return new ArrayList<>(store.values());
+        return em.createQuery("select m from Member m", Member.class)
+                .getResultList();
+    }
+
+    public List<Member> findByUsername(String username) {
+        return em.createQuery("select m from Member m where m.username = :username", Member.class)
+                .setParameter("username", username)
+                .getResultList();
+    }
+
+
+    @Override
+    public List<Member> findByNickName(String nickname) {
+        return em.createQuery("select m from Member m where m.nickname = :nickname", Member.class)
+                .setParameter("nickname", nickname)
+                .getResultList();
     }
 
     @Override
@@ -47,6 +53,4 @@ public class MemberRepositoryImpl implements MemberRepository {
         findMember.setPassword(updateParam.getPassword());
         findMember.setNickname(updateParam.getNickname());
     }
-
-
 }
