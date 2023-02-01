@@ -1,6 +1,5 @@
 package proj.dev_proj;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import proj.dev_proj.member.*;
 
@@ -9,7 +8,7 @@ import static org.assertj.core.api.Assertions.*;
 public class test {
 
     MemberService memberService = new MemberServiceImp();
-    MemberRepository memberRepository = new MemberRepositoryImpl();
+    MemberRepository memberRepository = new MemberRepositoryImpl(em);
 
     @Test
     void create() {

@@ -4,19 +4,13 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.util.HashMap;
 import java.util.List;
 
 @Repository
 public class MemberRepositoryImpl implements MemberRepository {
 
-
     @PersistenceContext
     private EntityManager em;
-
-    private HashMap<Long, Member> store = new HashMap<Long, Member>();
-
-    private long sequence = 0L;
 
     @Override
     public void save(Member member) {

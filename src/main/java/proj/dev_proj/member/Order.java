@@ -27,10 +27,10 @@ public class Order {
 
     private LocalDateTime orderDate; // 주문 시간
 
-    //==연관 관계 메서드==//
-    public void setMember(Member member) {
-        this.member = member;
-        member.getOrders().add(this);
-    }
+//    //==연관 관계 메서드==//
+//    public void setMember(Member member) {
+//        this.member = member;
+//        member.getOrders().add(this);
+//    }
 
 }

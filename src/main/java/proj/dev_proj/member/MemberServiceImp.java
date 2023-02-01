@@ -4,13 +4,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MemberServiceImp implements MemberService{
+
     private final MemberRepositoryImpl memberRepositoryImpl = new MemberRepositoryImpl();
 
     @Override
     public Long join(Member member, String password_check) {
 //        validateDuplicateMember(member);
-        validatePasswordCheck(member.getPassword(), password_check);// 중복회원 검증
+//        validatePasswordCheck(member.getPassword(), password_check);
+        System.out.println(member);
         memberRepositoryImpl.save(member);
+        System.out.println(member.getUsername());
+        System.out.println(member.getNickname());
+        System.out.println(member.getPassword());
         return member.getId();
     }
 

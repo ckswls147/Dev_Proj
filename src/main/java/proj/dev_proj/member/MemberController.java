@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import proj.dev_proj.MemberData;
 
 @Controller
-public class LoginController {
+public class MemberController {
     MemberService memberService = new MemberServiceImp();
 
 
@@ -19,14 +19,15 @@ public class LoginController {
     @PostMapping("/signup")
     public String signup(@ModelAttribute MemberData memberdata
     ) {
-
         Member member = new Member();
         member.setUsername(memberdata.getUsername());
         member.setPassword(memberdata.getPassword());
         member.setNickname(memberdata.getNickname());
         String check_pwd = memberdata.getPassword2();
-        System.out.println("check_pwd = " + check_pwd);
-
+        member.setId(1L);
+        System.out.println(member);
+        System.out.println(check_pwd);
+        System.out.println(member.getId());
         memberService.join(member, check_pwd);
         return "redirect:/";
     }
