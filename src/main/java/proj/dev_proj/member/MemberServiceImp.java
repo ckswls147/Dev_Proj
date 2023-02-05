@@ -1,18 +1,20 @@
 package proj.dev_proj.member;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class MemberServiceImp implements MemberService{
 
-    private final MemberRepositoryImpl memberRepositoryImpl = new MemberRepositoryImpl();
+    private final MemberRepository memberRepository;
 
     @Override
     public Long join(Member member, String password_check) {
 //        validateDuplicateMember(member);
 //        validatePasswordCheck(member.getPassword(), password_check);
         System.out.println(member);
-        memberRepositoryImpl.save(member);
+        memberRepository.save(member);
         System.out.println(member.getUsername());
         System.out.println(member.getNickname());
         System.out.println(member.getPassword());
@@ -33,7 +35,7 @@ public class MemberServiceImp implements MemberService{
 
     // 회원 아이디 조회
     public Member findOne(Long memberId) {
-        return memberRepositoryImpl.findById(memberId);
+        return memberRepository.findById(memberId);
     }
 
 }

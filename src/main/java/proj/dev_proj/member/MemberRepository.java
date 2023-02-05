@@ -1,18 +1,46 @@
 package proj.dev_proj.member;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
 import java.util.List;
 
-public interface MemberRepository {
+@Repository
+@RequiredArgsConstructor
+public class MemberRepository {
 
-    void save(Member member);
+    private final EntityManager em;
 
-    Member findById(Long id);
+    public void save(Member member) {
+        em.persist(member);
+    }
 
-    List<Member> findAll();
+    public Member findById(Long id) {
+        return em.find(Member.class, id);
+    }
 
-    List<Member> findByUsername(String username);
+    public List<Member> findAll() {
+        return em.createQuery("select m from Member m", Member.class)
+                .getResultList();
+    }
 
-    List<Member> findByNickName(String nickname);
+    public List<Member> findByUsername(String username) {
+        return em.createQuery("select m from Member m where m.username = :username", Member.class)
+                .setParameter("username", username)
+                .getResultList();
+    }
 
-    void update(Long memberId, Member updateParam);
+
+    public List<Member> findByNickName(String nickname) {
+        return em.createQuery("select m from Member m where m.nickname = :nickname", Member.class)
+                .setParameter("nickname", nickname)
+                .getResultList();
+    }
+
+    public void update(Long memberId, Member updateParam) {
+        Member findMember = findById(memberId);
+        findMember.setPassword(updateParam.getPassword());
+        findMember.setNickname(updateParam.getNickname());
+    }
 }

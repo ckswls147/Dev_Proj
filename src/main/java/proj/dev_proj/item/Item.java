@@ -9,17 +9,18 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Getter
 @Setter
-public abstract class Item { // 부모 클래스
+public class Item { // 부모 클래스
+
+    public Item() {
+    }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "item_id")
     private Long id;
-
+    private Long category;
+    private int item_Quantity;
     private String item_name;
     private int item_price;
-    private int item_Quantity;
-    private Category category;
-
 
 }
