@@ -131,14 +131,9 @@
                 <div class="col-lg-4">
                     <div class="item">
                         <div class="thumb">
-                            <div class="hover-content">
-                                <ul>
-                                    <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                    <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
-                                    <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
-                                </ul>
-                            </div>
+                            <a href ="/single-product">
                             <img th:src="@{'/item_img/' + ${item.item_name} + '.jpg'}"src="assets/images/men-01.jpg" alt="">
+                            </a>
                         </div>
                         <div class="down-content">
                             <h4 th:text="${item.item_name}">itemName</h4>
@@ -158,19 +153,19 @@
                 <div class="pagination">
                     <ul>
                         <li>
-                            <a href="#">1</a>
+                            <a href="/product/${item.category}">1</a>
                         </li>
                         <li class="active">
-                            <a href="#">2</a>
+                            <a href="/product/${item.category}">2</a>
                         </li>
                         <li>
-                            <a href="#">3</a>
+                            <a href="/product/${item.category}">3</a>
                         </li>
                         <li>
-                            <a href="#">4</a>
+                            <a href="/product/${item.category}">4</a>
                         </li>
                         <li>
-                            <a href="#">></a>
+                            <a href="/product/${item.category}">></a>
                         </li>
                     </ul>
                 </div>
@@ -199,33 +194,22 @@
             <div class="col-lg-3">
                 <h4>Shopping &amp; Categories</h4>
                 <ul>
-                    <li><a href="#">Men’s Shopping</a></li>
-                    <li><a href="#">Women’s Shopping</a></li>
-                    <li><a href="#">Kid's Shopping</a></li>
+                    <li><a href="/product/1">Men’s Shopping</a></li>
+                    <li><a href="/product/2">Women’s Shopping</a></li>
+                    <li><a href="/product/3">Kid's Shopping</a></li>
                 </ul>
             </div>
             <div class="col-lg-3">
                 <h4>Useful Links</h4>
                 <ul>
-                    <li><a href="#">Homepage</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3">
-                <h4>Help &amp; Information</h4>
-                <ul>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">FAQ's</a></li>
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">Tracking ID</a></li>
+                    <li><a href="/">Homepage</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
                 </ul>
             </div>
             <div class="col-lg-12">
                 <div class="under-footer">
                     <p>Copyright © 2022 HexaShop Co., Ltd. All Rights Reserved.
-
                         <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
                     <ul>
                         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
