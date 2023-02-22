@@ -8,7 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import proj.dev_proj.item.Item;
-import proj.dev_proj.item.ItemRepositoryImpl;
+import proj.dev_proj.item.ItemRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class ItemRepositoryTest {
     MemberRepository memberRepository;
 
     @Autowired
-    ItemRepositoryImpl itemRepository;
+    ItemRepository itemRepository;
 
     @Test
     public void findAllItem() {

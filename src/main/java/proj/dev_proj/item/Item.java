@@ -19,7 +19,6 @@ public class Item { // 부모 클래스
     @Column(name = "item_id")
     private Long id;
     private Long category;
-    private int item_Quantity;
     private String item_name;
     private int item_price;
 

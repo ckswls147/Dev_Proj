@@ -27,6 +27,8 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '2.5.6'
+
 
 	// jpa , h2 db
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

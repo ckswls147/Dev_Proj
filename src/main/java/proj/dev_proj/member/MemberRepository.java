@@ -25,22 +25,13 @@ public class MemberRepository {
                 .getResultList();
     }
 
-    public List<Member> findByUsername(String username) {
-        return em.createQuery("select m from Member m where m.username = :username", Member.class)
-                .setParameter("username", username)
-                .getResultList();
+    public Member findOne(Long id) {
+        return em.find(Member.class, id);
     }
-
-
-    public List<Member> findByNickName(String nickname) {
-        return em.createQuery("select m from Member m where m.nickname = :nickname", Member.class)
-                .setParameter("nickname", nickname)
+    public List<Member> findByName(String name) {
+        return em.createQuery("select m from Member m where m.name = :name",
+                        Member.class)
+                .setParameter("name", name)
                 .getResultList();
-    }
-
-    public void update(Long memberId, Member updateParam) {
-        Member findMember = findById(memberId);
-        findMember.setPassword(updateParam.getPassword());
-        findMember.setNickname(updateParam.getNickname());
     }
 }

@@ -20,7 +20,7 @@ public class ItemController {
 
 
     @RequestMapping(value = "/{categoryId}")
-    public String Thymeleaf(@PathVariable long categoryId, Model model){
+    public String Thymeleaf(@PathVariable long categoryId, Model model) {
         List<Item> itemList = itemRepository.findAllItem();
         List<Item> postItems = new ArrayList<>();
         for (Item item : itemList) {

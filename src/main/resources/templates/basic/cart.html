@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+  <title>Hexashop Ecommerce HTML CSS Template</title>
+
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
+
+  <link rel="stylesheet" href="/assets/css/templatemo-hexashop.css">
+
+  <link rel="stylesheet" href="/assets/css/owl-carousel.css">
+
+  <link rel="stylesheet" href="/assets/css/lightbox.css">
+
+</head>
+<body>
+<div class="container">
+  <div>
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>재고수량</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.price}"></td>
+        <td>
+          <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
+             class="btn btn-primary" role="button">수정</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div><!-- /container -->
+</div>
+</body>
+</html>
