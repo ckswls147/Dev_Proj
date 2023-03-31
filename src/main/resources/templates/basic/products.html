@@ -131,7 +131,8 @@
                 <div class="col-lg-4">
                     <div class="item">
                         <div class="thumb">
-                            <a href ="/single-product">
+                            <a href = "/products/1"
+                                    th:href ="@{/products(category = ${item.category}, item_id = ${item.id})}">
                             <img th:src="@{'/item_img/' + ${item.item_name} + '.jpg'}"src="assets/images/men-01.jpg" alt="">
                             </a>
                         </div>

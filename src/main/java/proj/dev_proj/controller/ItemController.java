@@ -19,8 +19,8 @@ public class ItemController {
     private final ItemRepository itemRepository;
 
 
-    @RequestMapping(value = "/{categoryId}")
-    public String Thymeleaf(@PathVariable long categoryId, Model model) {
+    @RequestMapping("/{categoryId}")
+    public String Product(@PathVariable long categoryId, Model model) {
         List<Item> itemList = itemRepository.findAllItem();
         List<Item> postItems = new ArrayList<>();
         for (Item item : itemList) {
@@ -33,5 +33,17 @@ public class ItemController {
         return "basic/products";
     }
 
-
+    @RequestMapping("/{categoryId}?") // 매핑 주소 설정, details?category=1&item_id=1
+    public String SingleProduct(@PathVariable long categoryId, Model model, String ItemId) {
+        List<Item> itemList = itemRepository.findAllItem();
+        Item postItem = new Item();
+        for (Item item1 : itemList) {
+            if (item1.getId().equals(ItemId)) {
+                postItem = item1;
+                break;
+            }
+        }
+        model.addAttribute("item", postItem);
+        return "basic/single_product";
+    }
 }

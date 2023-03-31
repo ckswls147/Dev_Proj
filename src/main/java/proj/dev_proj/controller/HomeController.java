@@ -37,18 +37,6 @@ public class HomeController {
         return "basic/products";
     }
 
-//    @RequestMapping(value = "/products/iteration")
-//    public String Thymeleaf(Model model){
-//        List<Item> itemList = new ArrayList<>();
-//        // constructor >> seq, name, price, quantity
-//        productList.add(new Product(1,"사과",1000,10));
-//        productList.add(new Product(2,"배",2000,16));
-//        productList.add(new Product(3,"초콜릿",1000,3));
-//        productList.add(new Product(4,"치킨",15000,1));
-//        //add data to view
-//        model.addAttribute("productList",productList);
-//        return "thymeleaf/iteration";
-//    }
 
     @GetMapping("/single-product")
     public String single_product() {
