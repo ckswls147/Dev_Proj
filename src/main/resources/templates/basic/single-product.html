@@ -148,8 +148,12 @@ https://templatemo.com/tm-571-hexashop
                         </div>
                     </div>
                     <div class="total">
-                        <h4>Total: $210.00</h4>
-                        <div class="main-border-button"><a href="#">Add To Cart</a></div>
+                        <h4 th:text="'Total : '+ ${item.item_price}">Total: $210.00</h4>
+                        <div class="main-border-button" onclick="alert('장바구니 저장')">
+                            <a th:href="@{/order}">
+                                Add To Cart
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

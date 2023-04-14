@@ -3,6 +3,7 @@ package proj.dev_proj.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,11 +35,12 @@ public class ItemController {
         return "basic/products";
     }
 
-    @RequestMapping("/single-product")
+    @GetMapping("/single-product")
     public String Single_Product(@ModelAttribute("item") Item selectitem,
                                  Model model) {
         Item item = itemRepository.findOne(selectitem.getId());
         model.addAttribute("item", item);
+        model.addAttribute("msg","장바구니 저장");
         return "basic/single-product";
     }
 }
