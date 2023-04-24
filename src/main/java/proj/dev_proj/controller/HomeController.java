@@ -21,11 +21,6 @@ public class HomeController {
     public String about() {
         return "basic/about";
     }
-    @GetMapping("/cart")
-    public String cart() {
-        return "basic/cart";
-    }
-
 
     @GetMapping("/contact")
     public String contact() {

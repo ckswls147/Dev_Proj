@@ -22,33 +22,98 @@
   <link rel="stylesheet" href="/assets/css/lightbox.css">
 
 </head>
+
 <body>
-<div class="container">
-  <div>
-  <div>
-    <table class="table table-striped">
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>상품명</th>
-        <th>가격</th>
-        <th>재고수량</th>
-        <th></th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="item : ${items}">
-        <td th:text="${item.id}"></td>
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.price}"></td>
-        <td>
-          <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
-             class="btn btn-primary" role="button">수정</a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </div><!-- /container -->
+<!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <a th:href="@{/}"
+             href="index.html" class="logo">
+            <img src="/assets/images/logo.png">
+          </a>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            <li class="scroll-to-section">
+              <a th:href="@{/}"
+                 href="index.html" class="active">Home</a></li>
+            <li class="scroll-to-section">
+              <a th:href="@{/products/1}"
+                 href="index.html">Men's</a></li>
+            <li class="scroll-to-section">
+              <a th:href="@{/products/2}"
+                 href="index.html">Women's</a></li>
+            <li class="scroll-to-section">
+              <a th:href="@{/products/3}"
+                 href="index.html">Kid's</a></li>
+            <li class="submenu">
+              <a href="javascript:;">Pages</a>
+              <ul>
+                <li><a th:href="@{/about}">About Us</a></li>
+                <li><a th:href="@{/products}"
+                       href="products.html">Products</a></li>
+                <li><a th:href="@{/single-product}"
+                       href="single-product.html">Single Product</a></li>
+                <li><a th:href="@{/contact}"
+                       href="contact.html">Contact Us</a></li>
+              </ul>
+            </li>
+
+            <li class="scroll-to-section">
+
+              <a href="/login">Sign in</a></li>
+            <li class="scroll-to-section">
+              <a th:href="@{/signup}"
+                 href="signup.html">Sign up</a>
+            </li>
+            <li class="scroll-to-section">
+              <a th:href="@{/cart}"
+                 href="cart.html">Cart</a>
+            </li>
+          </ul>
+          <a class='menu-trigger'>
+            <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>    <!-- ***** Header Area End ***** -->
+<div class="main-banner" id="top">
+  <div class="container-fluid">
+    <div class="row">
+  <div class="container">
+    <div>
+    <div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>상품명</th>
+          <th>가격</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="item : ${items}">
+          <td th:text="${item.id}"></td>
+          <td th:text="${item.name}"></td>
+          <td th:text="${item.price}"></td>
+          <td>
+            <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
+               class="btn btn-primary" role="button">수정</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div><!-- /container -->
+  </div>
 </div>
-</body>
+
+    </div></div></div></body>
 </html>
