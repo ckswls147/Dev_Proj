@@ -1,12 +1,11 @@
-package proj.dev_proj.item;
+package proj.dev_proj.order;
 
 
 import lombok.Getter;
 import lombok.Setter;
-import proj.dev_proj.member.Member;
+import proj.dev_proj.item.Item;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +21,7 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "member_id") // fk 이름 : member_id
-    private Member member;
-
     @OneToMany(fetch = LAZY)
     private List<Item> itemList = new ArrayList<>();
-
-    private LocalDateTime orderDate; // 주문 시간
-
 
 }
