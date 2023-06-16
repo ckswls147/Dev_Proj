@@ -2,18 +2,17 @@ package proj.dev_proj.order;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-import proj.dev_proj.item.Item;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import static javax.persistence.FetchType.LAZY;
 
 @Entity
 @Table(name = "orders")
 @Getter @Setter
+@NoArgsConstructor
+@Transactional
 public class Order {
 
     @Id
@@ -21,7 +20,22 @@ public class Order {
     @Column(name = "order_id")
     private Long id;
 
-    @OneToMany(fetch = LAZY)
-    private List<Item> itemList = new ArrayList<>();
+    @Column
+    private String name;
+
+    @Column
+    private Long price;
+
+    public Order(String name, Long price) {
+        this.name = name;
+        this.price = price;
+    }
+
+    //
+//    public static Order createOrder(Long id, List itemList) {
+//        Order order = new Order();
+//        order.setId(id);
+//        order.setItemList(itemList);
+//    }
 
 }

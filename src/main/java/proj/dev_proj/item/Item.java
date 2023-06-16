@@ -20,6 +20,10 @@ public class Item { // 부모 클래스
     private Long id;
     private Long category;
     private String item_name;
-    private int item_price;
+    private Long item_price;
 
+    public Item(String item_name, Long item_price) {
+        this.item_name = item_name;
+        this.item_price = item_price;
+    }
 }

@@ -38,14 +38,12 @@ public class ItemController {
                                  Model model) {
         Item item = itemRepository.findOne(selectitem.getId());
         model.addAttribute("item", item);
-        model.addAttribute("msg", "장바구니 저장");
         return "basic/single-product";
     }
 
-    @PostMapping("/single-product")
-    public String Add_Cart(@ModelAttribute("add_item") Item item,
-                           Model model) {
-        orderRepository.save(item);
-        return "basic/single-product";
-    }
+//    @PostMapping("/add")
+//    public String addV3(@ModelAttribute Item item, Model model) {
+//        orderRepository.addOrder(item);
+//        return "basic/single-product";
+//    }
 }

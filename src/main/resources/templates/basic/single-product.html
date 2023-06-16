@@ -148,7 +148,7 @@ https://templatemo.com/tm-571-hexashop
                         </div>
                     </div>
                     <div class="total">
-                        <form method="post" action="/cart">
+                        <form method="post" th:action="@{/add(id=${item.id})}">
                         <h4 th:text="'Total : '+ ${item.item_price}">Total: $210.00</h4>
                             <button class="main-border-button" onclick="alert('장바구니 저장')" type="submit">
                                 Add To Cart
